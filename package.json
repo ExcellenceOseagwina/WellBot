@@ -1,0 +1,31 @@
+{
+  "name": "wellspring-student-assistant",
+  "version": "1.0.0",
+  "description": "Web-based Wellspring University student assistance chatbot.",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js"
+  },
+  "keywords": [
+    "chatbot",
+    "student-assistant",
+    "wellspring-university",
+    "express",
+    "supabase"
+  ],
+  "author": "Wellspring University",
+  "license": "MIT",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.4",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}

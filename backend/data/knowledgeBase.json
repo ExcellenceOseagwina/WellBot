@@ -1,0 +1,74 @@
+[
+  {
+    "id": "about-wellspring",
+    "category": "general",
+    "question": "What is Wellspring University?",
+    "answer": "Wellspring University is a private university in Benin City, Edo State, Nigeria. Students should confirm official updates through the university website, admission office, student affairs office, or their department.",
+    "keywords": ["wellspring", "university", "private", "benin", "edo"],
+    "phrases": ["what is wellspring university", "about wellspring university", "where is wellspring university"]
+  },
+  {
+    "id": "admission-support",
+    "category": "admissions",
+    "question": "How do I get admission information?",
+    "answer": "For admission information, visit Wellspring University's official admission channels or contact the admissions office. Keep your email address, phone number, academic records, and application details ready when requesting support.",
+    "keywords": ["admission", "apply", "application", "requirements", "screening"],
+    "phrases": ["admission information", "how do i apply", "application requirements", "admission requirements"]
+  },
+  {
+    "id": "student-login",
+    "category": "portal",
+    "question": "How do I log in as a student?",
+    "answer": "Use your matric number and password to log in. If you cannot log in, check that your matric number is typed correctly, reset your password, or contact ICT/student support.",
+    "keywords": ["login", "portal", "matric", "password", "student"],
+    "phrases": ["student login", "matric number", "forgot password", "cannot login"]
+  },
+  {
+    "id": "password-reset",
+    "category": "portal",
+    "question": "How do I reset my password?",
+    "answer": "Open the reset password page, enter the email address linked to your account, and follow the reset instructions. If you still need help, contact ICT/student support.",
+    "keywords": ["reset", "password", "forgot", "email", "account"],
+    "phrases": ["reset password", "forgot my password", "recover account"]
+  },
+  {
+    "id": "fees",
+    "category": "finance",
+    "question": "Where can I ask about school fees?",
+    "answer": "For school fees, payment confirmation, receipts, or balances, contact the bursary or check the official student payment channel. Do not pay into unofficial accounts.",
+    "keywords": ["fees", "payment", "bursary", "receipt", "balance"],
+    "phrases": ["school fees", "pay fees", "payment confirmation", "fee balance"]
+  },
+  {
+    "id": "course-registration",
+    "category": "academics",
+    "question": "How do I register courses?",
+    "answer": "Students should follow the official course registration process provided by their department or portal. Confirm your level, semester, required courses, electives, and adviser approval before final submission.",
+    "keywords": ["course", "registration", "semester", "department", "adviser"],
+    "phrases": ["course registration", "register courses", "semester courses", "department adviser"]
+  },
+  {
+    "id": "transcript",
+    "category": "records",
+    "question": "How can I request a transcript?",
+    "answer": "Transcript requests should go through the registry or official records office. Provide your full name, matric number, programme, graduation year if applicable, and destination details.",
+    "keywords": ["transcript", "registry", "records", "graduation", "matric"],
+    "phrases": ["request transcript", "academic records", "registry office"]
+  },
+  {
+    "id": "hostel",
+    "category": "student affairs",
+    "question": "Who handles hostel or accommodation questions?",
+    "answer": "Hostel and accommodation questions should be directed to student affairs or the unit responsible for accommodation. Ask about availability, allocation, payment, and hostel rules.",
+    "keywords": ["hostel", "accommodation", "student", "affairs", "allocation"],
+    "phrases": ["hostel allocation", "student affairs", "accommodation questions"]
+  },
+  {
+    "id": "contact-office",
+    "category": "support",
+    "question": "Who should I contact for help?",
+    "answer": "For urgent or account-specific help, contact the relevant Wellspring University office: admissions, registry, bursary, ICT support, student affairs, or your department.",
+    "keywords": ["contact", "help", "office", "support", "department"],
+    "phrases": ["contact support", "who should i contact", "student help"]
+  }
+]
