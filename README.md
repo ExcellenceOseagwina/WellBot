@@ -8,11 +8,9 @@ A web-based chatbot for Wellspring University students. It includes public pages
 - Student signup with email, username, matric number, and password.
 - Student login with matric number and password.
 - Chatbot answers student questions from a stored university knowledge base.
-- Matching engine calculates confidence with token overlap, keyword coverage, phrase matching, sequence similarity, and category matching.
 - Conversations are saved for future review and chatbot improvement.
-- Uses `logo.png`, `bg.jpg`, and favicon assets in the frontend.
 
-## Directory Structure
+## Chat Bot Directory Structure
 
 ```text
 WellBot/

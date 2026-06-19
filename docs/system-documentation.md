@@ -50,4 +50,3 @@ The chatbot depends on `backend/data/knowledgeBase.json`. Administrators should 
 - Replace `JWT_SECRET` in production.
 - Use the Supabase service role key only on the backend.
 - Do not expose `.env` values in frontend files.
-- Review Row Level Security policies before production deployment.

@@ -64,7 +64,45 @@ function redirectIfAuthed() {
   if (getSession()?.token) location.href = "chatbot.html";
 }
 
+function applyTheme(theme) {
+  const isDark = theme === "dark";
+  document.body.classList.toggle("dark-mode", isDark);
+  document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
+    button.textContent = isDark ? "Light" : "Dark";
+    button.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+  });
+}
+
+function setupThemeToggle() {
+  const savedTheme = localStorage.getItem("wellspring_theme") || "light";
+  applyTheme(savedTheme);
+
+  document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const nextTheme = document.body.classList.contains("dark-mode") ? "light" : "dark";
+      localStorage.setItem("wellspring_theme", nextTheme);
+      applyTheme(nextTheme);
+    });
+  });
+}
+
+function setupPasswordToggles() {
+  document.querySelectorAll("[data-password-toggle]").forEach((button) => {
+    const input = document.querySelector(button.dataset.passwordToggle);
+    if (!input) return;
+
+    button.addEventListener("click", () => {
+      const showing = input.type === "text";
+      input.type = showing ? "password" : "text";
+      button.textContent = showing ? "Show" : "Hide";
+      button.setAttribute("aria-label", showing ? "Show password" : "Hide password");
+    });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  setupThemeToggle();
+  setupPasswordToggles();
   markActiveNav();
   setupLogout();
 });
