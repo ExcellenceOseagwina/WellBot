@@ -1,6 +1,7 @@
 require("dotenv").config();
 
 const path = require("path");
+const { randomUUID } = require("crypto");
 const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
@@ -78,7 +79,7 @@ async function saveStudent(student) {
     return data;
   }
 
-  const saved = { id: crypto.randomUUID(), created_at: new Date().toISOString(), ...student };
+  const saved = { id: randomUUID(), created_at: new Date().toISOString(), ...student };
   memoryStore.students.push(saved);
   return saved;
 }
@@ -91,7 +92,7 @@ async function saveConversation(payload) {
   }
 
   memoryStore.conversations.push({
-    id: crypto.randomUUID(),
+    id: randomUUID(),
     created_at: new Date().toISOString(),
     ...payload
   });
@@ -197,7 +198,7 @@ app.post("/api/auth/reset-password", async (req, res) => {
       if (error) throw error;
     } else {
       memoryStore.resetRequests.push({
-        id: crypto.randomUUID(),
+        id: randomUUID(),
         student_id: student.id,
         email: student.email,
         created_at: new Date().toISOString()

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatbot | Wellspring Student Assistant</title>
+    <link rel="icon" href="assets/icons/favicon.ico" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <nav class="nav">
+          <a class="brand" href="index.html">
+            <img src="assets/images/logo.png" alt="Wellspring University logo" />
+            <span>Wellspring University</span>
+          </a>
+          <div class="nav-links">
+            <a data-nav href="index.html">Home</a>
+            <a data-nav href="about.html">About</a>
+            <a data-nav href="chatbot.html">Chatbot</a>
+            <button class="button danger" type="button" data-logout>Logout</button>
+          </div>
+        </nav>
+      </header>
+
+      <main class="chat-page">
+        <div class="chat-layout">
+          <aside class="history-panel">
+            <h2>History</h2>
+            <p class="muted">Saved conversations for future review.</p>
+            <div id="historyList" class="history-list"></div>
+          </aside>
+
+          <section class="chat-panel" aria-label="Student assistant chatbot">
+            <div class="chat-header">
+              <div>
+                <h1>Ask the assistant</h1>
+                <p class="muted">Signed in as <strong id="studentName">Student</strong></p>
+              </div>
+              <span class="status-pill">Online</span>
+            </div>
+            <div id="messages" class="messages" aria-live="polite"></div>
+            <form id="chatForm" class="chat-form">
+              <textarea id="questionInput" placeholder="Ask a Wellspring University question..." required></textarea>
+              <button class="button" type="submit">Send</button>
+            </form>
+          </section>
+        </div>
+      </main>
+    </div>
+    <script src="js/app.js"></script>
+    <script src="js/chatbot.js"></script>
+  </body>
+</html>

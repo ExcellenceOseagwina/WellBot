@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign up | Wellspring Student Assistant</title>
+    <link rel="icon" href="assets/icons/favicon.ico" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body data-page="signup">
+    <div class="app-shell">
+      <header class="topbar">
+        <nav class="nav">
+          <a class="brand" href="index.html">
+            <img src="assets/images/logo.png" alt="Wellspring University logo" />
+            <span>Wellspring University</span>
+          </a>
+          <div class="nav-links">
+            <a data-nav href="index.html">Home</a>
+            <a data-nav href="about.html">About</a>
+            <a data-nav href="chatbot.html">Chatbot</a>
+            <a data-nav href="login.html">Login</a>
+          </div>
+        </nav>
+      </header>
+
+      <main class="auth-wrap">
+        <form id="signupForm" class="form-card">
+          <h1>Create account</h1>
+          <p class="muted">Sign up with your student details.</p>
+
+          <label for="username">Username</label>
+          <input id="username" name="username" autocomplete="username" required />
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required />
+
+          <label for="matricNumber">Matric number</label>
+          <input id="matricNumber" name="matricNumber" autocomplete="off" required />
+
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" minlength="6" autocomplete="new-password" required />
+
+          <div id="formMessage" class="form-message" role="status"></div>
+          <button class="button" type="submit">Sign up</button>
+          <p class="muted">Already have an account? <a href="login.html">Login</a></p>
+        </form>
+      </main>
+      <footer class="footer">Wellspring University Student Assistant</footer>
+    </div>
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+  </body>
+</html>

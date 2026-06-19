@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About | Wellspring Student Assistant</title>
+    <link rel="icon" href="assets/icons/favicon.ico" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <nav class="nav">
+          <a class="brand" href="index.html">
+            <img src="assets/images/logo.png" alt="Wellspring University logo" />
+            <span>Wellspring University</span>
+          </a>
+          <div class="nav-links">
+            <a data-nav href="index.html">Home</a>
+            <a data-nav href="about.html">About</a>
+            <a data-nav href="chatbot.html">Chatbot</a>
+            <a data-nav href="signup.html">Sign up</a>
+            <a data-nav href="login.html">Login</a>
+          </div>
+        </nav>
+      </header>
+
+      <main>
+        <header class="page-header">
+          <div class="section">
+            <span class="eyebrow">About the system</span>
+            <h1>Built for student assistance</h1>
+            <p class="muted">
+              The assistant is designed to help Wellspring University students find guidance quickly while preserving
+              conversations that can improve support quality over time.
+            </p>
+          </div>
+        </header>
+
+        <section class="section two-column">
+          <div>
+            <h2>How the chatbot decides</h2>
+            <p>
+              When a student asks a question, the system tokenizes the text, compares it with stored university
+              questions, calculates a confidence score, and returns the best answer. If confidence is low, it suggests
+              related questions instead of pretending to know.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Scoring signals</h3>
+            <p>Token overlap, keyword coverage, phrase matching, sequence similarity, and category matching.</p>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">Wellspring University Student Assistant</footer>
+    </div>
+    <script src="js/app.js"></script>
+  </body>
+</html>
