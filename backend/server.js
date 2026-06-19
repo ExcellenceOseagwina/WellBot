@@ -7,7 +7,7 @@ const cors = require("cors");
 const morgan = require("morgan");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const { supabase } = require("./supabaseClient");
+const db = require("./supabaseClient");
 const { findBestAnswer, tokenize } = require("./chatbotEngine");
 
 const app = express();
@@ -48,8 +48,8 @@ function publicStudent(student) {
 }
 
 async function findStudentByMatric(matricNumber) {
-  if (supabase) {
-    const { data, error } = await supabase
+  if (db.supabase) {
+    const { data, error } = await db.supabase
       .from("students")
       .select("*")
       .eq("matric_number", matricNumber)
@@ -63,8 +63,8 @@ async function findStudentByMatric(matricNumber) {
 }
 
 async function findStudentByEmail(email) {
-  if (supabase) {
-    const { data, error } = await supabase.from("students").select("*").eq("email", email).single();
+  if (db.supabase) {
+    const { data, error } = await db.supabase.from("students").select("*").eq("email", email).single();
     if (error && error.code !== "PGRST116") throw error;
     return data;
   }
@@ -73,8 +73,8 @@ async function findStudentByEmail(email) {
 }
 
 async function saveStudent(student) {
-  if (supabase) {
-    const { data, error } = await supabase.from("students").insert(student).select("*").single();
+  if (db.supabase) {
+    const { data, error } = await db.supabase.from("students").insert(student).select("*").single();
     if (error) throw error;
     return data;
   }
@@ -85,8 +85,8 @@ async function saveStudent(student) {
 }
 
 async function saveConversation(payload) {
-  if (supabase) {
-    const { error } = await supabase.from("conversations").insert(payload);
+  if (db.supabase) {
+    const { error } = await db.supabase.from("conversations").insert(payload);
     if (error) throw error;
     return;
   }
@@ -113,7 +113,7 @@ function authMiddleware(req, res, next) {
 app.get("/api/health", (req, res) => {
   res.json({
     status: "ok",
-    database: supabase ? "supabase" : "memory",
+    database: db.supabase ? "supabase" : "memory",
     app: "Wellspring University Student Assistant"
   });
 });
@@ -190,8 +190,8 @@ app.post("/api/auth/reset-password", async (req, res) => {
       return res.json({ message: "If the email exists, password reset instructions will be sent." });
     }
 
-    if (supabase) {
-      const { error } = await supabase.from("password_reset_requests").insert({
+    if (db.supabase) {
+      const { error } = await db.supabase.from("password_reset_requests").insert({
         student_id: student.id,
         email: student.email
       });
@@ -245,8 +245,8 @@ app.post("/api/chat", authMiddleware, async (req, res) => {
 
 app.get("/api/conversations", authMiddleware, async (req, res) => {
   try {
-    if (supabase) {
-      const { data, error } = await supabase
+    if (db.supabase) {
+      const { data, error } = await db.supabase
         .from("conversations")
         .select("*")
         .eq("student_id", req.user.id)
@@ -272,6 +272,16 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(frontendPath, "index.html"));
 });
 
-app.listen(PORT, () => {
-  console.log(`Wellspring Student Assistant running on http://localhost:${PORT}`);
+async function startServer() {
+  await db.ensureSupabaseReady();
+
+  app.listen(PORT, () => {
+    const storage = db.supabase ? "supabase" : "memory";
+    console.log(`Wellspring Student Assistant running on http://localhost:${PORT} (${storage})`);
+  });
+}
+
+startServer().catch((error) => {
+  console.error("Failed to start server:", error.message);
+  process.exit(1);
 });

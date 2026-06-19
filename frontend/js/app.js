@@ -1,8 +1,22 @@
 const API_BASE = "";
 
+function isTokenExpired(token) {
+  try {
+    const payload = JSON.parse(atob(token.split(".")[1].replace(/-/g, "+").replace(/_/g, "/")));
+    return !payload.exp || payload.exp * 1000 <= Date.now();
+  } catch (error) {
+    return true;
+  }
+}
+
 function getSession() {
   try {
-    return JSON.parse(localStorage.getItem("wellspring_session")) || null;
+    const session = JSON.parse(localStorage.getItem("wellspring_session")) || null;
+    if (session?.token && isTokenExpired(session.token)) {
+      clearSession();
+      return null;
+    }
+    return session;
   } catch (error) {
     return null;
   }
