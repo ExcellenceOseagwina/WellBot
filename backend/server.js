@@ -517,9 +517,9 @@ app.post("/api/auth/reset-password", async (req, res) => {
 
 app.post("/api/chat", authMiddleware, async (req, res) => {
   try {
-    const { question } = req.body;
+    const question = String(req.body.question || "").trim();
 
-    if (!question || !String(question).trim()) {
+    if (!question) {
       return res.status(400).json({ message: "Question is required." });
     }
 

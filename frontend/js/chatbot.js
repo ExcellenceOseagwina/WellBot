@@ -46,8 +46,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     "bot"
   );
 
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
+  async function sendQuestion() {
     const question = input.value.trim();
     if (!question) return;
 
@@ -69,5 +68,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     } catch (error) {
       addMessage(error.message, "bot");
     }
+  }
+
+  input.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" && !event.shiftKey) {
+      event.preventDefault();
+      form.requestSubmit();
+    }
+  });
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    await sendQuestion();
   });
 });
