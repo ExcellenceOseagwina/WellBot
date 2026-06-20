@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Reset Password | Wellspring Student Assistant</title>
+    <title>Verify Email | Wellspring Student Assistant</title>
     <link rel="icon" href="assets/icons/favicon-32x32.png" />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
-  <body data-page="reset">
+  <body data-page="verify">
     <div class="app-shell">
       <header class="topbar">
         <nav class="nav">
@@ -25,26 +25,22 @@
       </header>
 
       <main class="auth-wrap">
-        <form id="resetForm" class="form-card">
-          <h1>Set new password</h1>
-          <p class="muted">Choose a new password for your account.</p>
-
-          <label for="password">New password</label>
-          <div class="password-field">
-            <input id="password" name="password" type="password" minlength="6" autocomplete="new-password" required />
-            <button class="password-toggle" type="button" data-password-toggle="#password" aria-label="Show password">Show</button>
-          </div>
-
-          <label for="confirmPassword">Confirm password</label>
-          <div class="password-field">
-            <input id="confirmPassword" name="confirmPassword" type="password" minlength="6" autocomplete="new-password" required />
-            <button class="password-toggle" type="button" data-password-toggle="#confirmPassword" aria-label="Show password">Show</button>
-          </div>
-
-          <div id="formMessage" class="form-message" role="status"></div>
-          <button class="button" type="submit">Reset password</button>
+        <div id="verifyPending" class="form-card" hidden>
+          <h1>Check your email</h1>
+          <p class="muted">We sent a verification link to <strong id="pendingEmail"></strong>. Click the link in the email to activate your account.</p>
+          <div id="pendingMessage" class="form-message" role="status"></div>
+          <form id="resendForm">
+            <label for="resendEmail">Didn't receive it?</label>
+            <input id="resendEmail" name="email" type="email" autocomplete="email" required />
+            <button class="button" type="submit">Resend verification email</button>
+          </form>
           <p class="muted"><a href="login.html">Back to login</a></p>
-        </form>
+        </div>
+
+        <div id="verifyToken" class="form-card" hidden>
+          <h1>Verifying email...</h1>
+          <div id="verifyMessage" class="form-message" role="status">Please wait while we verify your email.</div>
+        </div>
       </main>
       <footer class="footer">Wellspring University Student Assistant</footer>
     </div>

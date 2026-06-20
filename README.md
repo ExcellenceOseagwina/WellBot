@@ -4,9 +4,10 @@ A web-based chatbot for Wellspring University students. It includes public pages
 
 ## Features
 
-- Homepage, about page, chatbot page, signup page, login page, and reset password page.
-- Student signup with email, username, matric number, and password.
-- Student login with matric number and password.
+- Homepage, about page, chatbot page, signup page, login page, forgot password page, reset password page, and email verification page.
+- Student signup with email, username, matric number, password, and email verification links.
+- Student login with matric number and password after email verification.
+- Password reset links sent by email.
 - Chatbot answers student questions from a stored university knowledge base.
 - Conversations are saved for future review and chatbot improvement.
 
@@ -18,9 +19,11 @@ WellBot/
     data/
       knowledgeBase.json
     chatbotEngine.js
+    emailService.js
     schema.sql
     server.js
     supabaseClient.js
+    tokenUtils.js
   docs/
     system-documentation.md
     user-documentation.md
@@ -47,8 +50,10 @@ WellBot/
     chatbot.html
     index.html
     login.html
+    forgot-password.html
     reset-password.html
     signup.html
+    verify-email.html
   .env.example
   package.json
   README.md
