@@ -49,6 +49,8 @@ async function apiRequest(path, options = {}) {
     const error = new Error(payload.message || "Request failed.");
     if (payload.needsVerification) error.needsVerification = true;
     if (payload.email) error.email = payload.email;
+    if (payload.devVerificationLink) error.devVerificationLink = payload.devVerificationLink;
+    if (payload.devResetLink) error.devResetLink = payload.devResetLink;
     throw error;
   }
   return payload;

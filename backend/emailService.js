@@ -6,6 +6,10 @@ const EMAIL_FROM = process.env.EMAIL_FROM || "noreply@wellspring.edu";
 
 let transporter = null;
 
+function isSmtpConfigured() {
+  return Boolean(process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS);
+}
+
 function getTransporter() {
   if (transporter) return transporter;
 
@@ -26,7 +30,7 @@ function getTransporter() {
   return transporter;
 }
 
-async function sendEmail({ to, subject, html, text }) {
+async function sendEmail({ to, subject, html, text, link }) {
   const mail = {
     from: EMAIL_FROM,
     to,
@@ -43,10 +47,11 @@ async function sendEmail({ to, subject, html, text }) {
     console.log(`Subject: ${subject}`);
     console.log(text || html);
     console.log("---\n");
-    return { dev: true };
+    return { dev: true, link };
   }
 
-  return transport.sendMail(mail);
+  await transport.sendMail(mail);
+  return { dev: false };
 }
 
 async function sendVerificationEmail(email, token) {
@@ -55,6 +60,7 @@ async function sendVerificationEmail(email, token) {
   return sendEmail({
     to: email,
     subject: `Verify your ${APP_NAME} account`,
+    link,
     text: `Welcome to ${APP_NAME}!\n\nPlease verify your email by visiting:\n${link}\n\nThis link expires in 24 hours.`,
     html: `
       <h2>Welcome to ${APP_NAME}</h2>
@@ -73,6 +79,7 @@ async function sendPasswordResetEmail(email, token) {
   return sendEmail({
     to: email,
     subject: `Reset your ${APP_NAME} password`,
+    link,
     text: `You requested a password reset for ${APP_NAME}.\n\nReset your password by visiting:\n${link}\n\nThis link expires in 1 hour. If you did not request this, ignore this email.`,
     html: `
       <h2>Password reset</h2>
@@ -86,6 +93,7 @@ async function sendPasswordResetEmail(email, token) {
 }
 
 module.exports = {
+  isSmtpConfigured,
   sendVerificationEmail,
   sendPasswordResetEmail
 };

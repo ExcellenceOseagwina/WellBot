@@ -21,7 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
           method: "POST",
           body: JSON.stringify(payload)
         });
-        location.href = `verify-email.html?pending=1&email=${encodeURIComponent(result.email)}`;
+        const params = new URLSearchParams({ pending: "1", email: result.email });
+        if (result.devVerificationLink) params.set("devVerificationLink", result.devVerificationLink);
+        location.href = `verify-email.html?${params.toString()}`;
       } catch (error) {
         message.textContent = error.message;
       }
@@ -72,6 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         message.textContent = result.message;
         message.classList.add("success");
+        if (result.devResetLink) showDevLink("#formMessage", result.devResetLink, "reset", "Reset password");
         forgotForm.reset();
       } catch (error) {
         message.textContent = error.message;
@@ -125,6 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const token = params.get("token");
     const pending = params.get("pending");
     const email = params.get("email");
+    const devVerificationLink = params.get("devVerificationLink");
 
     const verifyPending = document.querySelector("#verifyPending");
     const verifyToken = document.querySelector("#verifyToken");
@@ -138,6 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector("#pendingEmail").textContent = email;
         document.querySelector("#resendEmail").value = email;
       }
+      if (devVerificationLink) showDevLink("#pendingMessage", devVerificationLink, "confirmation", "Verify email");
     } else {
       verifyPending.hidden = false;
       document.querySelector("#pendingEmail").textContent = "your email";
@@ -159,6 +164,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         message.textContent = result.message;
         message.classList.add("success");
+        if (result.devVerificationLink) {
+          showDevLink("#pendingMessage", result.devVerificationLink, "confirmation", "Verify email");
+        }
       } catch (error) {
         message.textContent = error.message;
       }
@@ -192,4 +200,21 @@ async function verifyEmailWithToken(token) {
     card.querySelector("h1").textContent = "Verification failed";
     message.textContent = error.message;
   }
+}
+
+function showDevLink(messageSelector, link, linkType, label) {
+  const message = document.querySelector(messageSelector);
+  if (!message) return;
+
+  message.textContent = "";
+  message.classList.add("success");
+
+  const text = document.createElement("span");
+  text.textContent = `Email sending is not configured on this server. Open this ${linkType} link: `;
+
+  const anchor = document.createElement("a");
+  anchor.href = link;
+  anchor.textContent = label;
+
+  message.append(text, anchor);
 }

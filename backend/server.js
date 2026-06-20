@@ -341,11 +341,15 @@ app.post("/api/auth/signup", async (req, res) => {
       expires_at: expiresAt
     });
 
-    await sendVerificationEmail(student.email, rawToken);
+    const emailResult = await sendVerificationEmail(student.email, rawToken);
 
     res.status(201).json({
-      message: "Account created. Please check your email to verify your account.",
-      email: student.email
+      message: emailResult.dev
+        ? "Account created, but email delivery is not configured. Use the verification link shown below."
+        : "Account created. Please check your email to verify your account.",
+      email: student.email,
+
+      devVerificationLink: emailResult.dev ? emailResult.link : undefined
     });
   } catch (error) {
     res.status(500).json({ message: "Unable to create account.", detail: error.message });
@@ -433,9 +437,14 @@ app.post("/api/auth/resend-verification", async (req, res) => {
       expires_at: expiresAt
     });
 
-    await sendVerificationEmail(student.email, rawToken);
+    const emailResult = await sendVerificationEmail(student.email, rawToken);
 
-    res.json({ message: "If the email exists and is unverified, a new verification link will be sent." });
+    res.json({
+      message: emailResult.dev
+        ? "Email delivery is not configured. Use the verification link shown below."
+        : "If the email exists and is unverified, a new verification link will be sent.",
+      devVerificationLink: emailResult.dev ? emailResult.link : undefined
+    });
   } catch (error) {
     res.status(500).json({ message: "Unable to resend verification email.", detail: error.message });
   }
@@ -462,9 +471,14 @@ app.post("/api/auth/forgot-password", async (req, res) => {
       expires_at: expiresAt
     });
 
-    await sendPasswordResetEmail(student.email, rawToken);
+    const emailResult = await sendPasswordResetEmail(student.email, rawToken);
 
-    res.json({ message: "If the email exists, password reset instructions will be sent." });
+    res.json({
+      message: emailResult.dev
+        ? "Email delivery is not configured. Use the password reset link shown below."
+        : "If the email exists, password reset instructions will be sent.",
+      devResetLink: emailResult.dev ? emailResult.link : undefined
+    });
   } catch (error) {
     res.status(500).json({ message: "Unable to request password reset.", detail: error.message });
   }
@@ -575,4 +589,4 @@ startServer().catch((error) => {
   console.error("Failed to start server:", error.message);
   process.exit(1);
 });
-
+
