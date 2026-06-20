@@ -332,6 +332,10 @@ textarea {
   align-items: start;
 }
 
+.chat-layout.single {
+  grid-template-columns: 1fr;
+}
+
 .chat-panel,
 .history-panel {
   background: var(--surface);
@@ -351,12 +355,49 @@ textarea {
   gap: 10px;
 }
 
+.history-page {
+  padding: 36px 0 64px;
+}
+
+.history-shell {
+  width: min(980px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.history-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
 .history-item {
   border: 1px solid var(--line);
   border-radius: 6px;
   padding: 10px;
   background: var(--soft);
   font-size: 13px;
+}
+
+.history-item.full {
+  background: var(--surface);
+  padding: 18px;
+  font-size: 15px;
+}
+
+.history-item.full h2 {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.history-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
 }
 
 .chat-panel {
@@ -467,6 +508,11 @@ textarea {
   .two-column,
   .chat-layout {
     grid-template-columns: 1fr;
+  }
+
+  .history-heading {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .hero {

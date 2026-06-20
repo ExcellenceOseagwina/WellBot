@@ -13,7 +13,8 @@ The Wellspring University Student Assistant helps students ask questions and rec
 - `Verify Email`: Confirms a new account from an emailed verification link.
 - `Forgot Password`: Requests a reset link by email.
 - `Reset Password`: Sets a new password from an emailed reset link.
-- `Chatbot`: Allows signed-in students to ask questions and review previous conversations.
+- `Chatbot`: Allows signed-in students to ask questions.
+- `History`: Shows saved chatbot conversations on a separate page.
 
 ## Creating an Account
 

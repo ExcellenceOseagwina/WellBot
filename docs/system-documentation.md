@@ -52,6 +52,6 @@ The chatbot depends on `backend/data/knowledgeBase.json`. Administrators should 
 ## Security Notes
 
 - Replace `JWT_SECRET` in production.
-- Configure SMTP settings so verification and password reset links are actually emailed.
+- Configure SMTP settings so verification and password reset links are delivered to student inboxes.
 - Use the Supabase service role key only on the backend.
 - Do not expose `.env` values in frontend files.

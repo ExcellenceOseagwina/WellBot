@@ -75,14 +75,15 @@ copy .env.example .env
 ```
 
 4. Add your Supabase values to `.env`.
-5. In Supabase SQL Editor, run `backend/schema.sql`.
-6. Start the app:
+5. Add SMTP values to `.env` so verification and password reset links are delivered to inboxes.
+6. In Supabase SQL Editor, run `backend/schema.sql`.
+7. Start the app:
 
 ```bash
 npm start
 ```
 
-7. Open:
+8. Open:
 
 ```text
 http://localhost:5000
@@ -91,6 +92,21 @@ http://localhost:5000
 ## Supabase Notes
 
 If Supabase environment variables are not configured, the server uses temporary in-memory storage so you can test locally. For real use, configure Supabase so student accounts and conversations persist.
+
+## Email Delivery
+
+Confirmation and password reset links require SMTP settings in `.env`. For Gmail, create an app password and use:
+
+```env
+EMAIL_FROM=your_email@gmail.com
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=your_email@gmail.com
+SMTP_PASS=your_gmail_app_password
+APP_BASE_URL=http://localhost:5000
+```
+
+If SMTP is missing, the server cannot deliver links to an inbox.
 
 ## Updating University Information
 

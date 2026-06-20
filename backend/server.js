@@ -10,7 +10,7 @@ const jwt = require("jsonwebtoken");
 const db = require("./supabaseClient");
 const { findBestAnswer, tokenize } = require("./chatbotEngine");
 const { generateToken, hashToken } = require("./tokenUtils");
-const { sendVerificationEmail, sendPasswordResetEmail } = require("./emailService");
+const { isSmtpConfigured, sendVerificationEmail, sendPasswordResetEmail } = require("./emailService");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -297,7 +297,9 @@ async function authMiddleware(req, res, next) {
 app.get("/api/health", (req, res) => {
   res.json({
     status: "ok",
-    database: db.supabase ? "supabase" : "memory",
+    database: db.supabase ? "supabase" : "memory",
+
+    email: isSmtpConfigured() ? "smtp" : "not-configured",
     app: "Wellspring University Student Assistant"
   });
 });

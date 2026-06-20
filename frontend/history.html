@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chatbot | Wellspring Student Assistant</title>
+    <title>History | Wellspring Student Assistant</title>
     <link rel="icon" href="assets/icons/favicon-16x16.png" />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
@@ -26,26 +26,20 @@
         </nav>
       </header>
 
-      <main class="chat-page">
-        <div class="chat-layout single">
-          <section class="chat-panel" aria-label="Student assistant chatbot">
-            <div class="chat-header">
-              <div>
-                <h1>Ask the assistant</h1>
-                <p class="muted">Signed in as <strong id="studentName">Student</strong></p>
-              </div>
-              <a class="button secondary" href="history.html">View history</a>
+      <main class="history-page">
+        <section class="history-shell">
+          <div class="history-heading">
+            <div>
+              <h1>Conversation history</h1>
+              <p class="muted">Review previous questions, answers, confidence scores, and categories.</p>
             </div>
-            <div id="messages" class="messages" aria-live="polite"></div>
-            <form id="chatForm" class="chat-form">
-              <textarea id="questionInput" placeholder="Ask a Wellspring University question..." required></textarea>
-              <button class="button" type="submit">Send</button>
-            </form>
-          </section>
-        </div>
+            <a class="button" href="chatbot.html">Back to chatbot</a>
+          </div>
+          <div id="historyList" class="history-list full"></div>
+        </section>
       </main>
     </div>
     <script src="js/app.js"></script>
-    <script src="js/chatbot.js"></script>
+    <script src="js/history.js"></script>
   </body>
 </html>

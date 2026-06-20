@@ -2,12 +2,17 @@ const nodemailer = require("nodemailer");
 
 const APP_NAME = "Wellspring Student Assistant";
 const APP_BASE_URL = process.env.APP_BASE_URL || "http://localhost:5000";
-const EMAIL_FROM = process.env.EMAIL_FROM || "noreply@wellspring.edu";
 
 let transporter = null;
 
 function isSmtpConfigured() {
   return Boolean(process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS);
+}
+
+function emailFromAddress() {
+  if (process.env.EMAIL_FROM) return process.env.EMAIL_FROM;
+  if (process.env.SMTP_USER) return `${APP_NAME} <${process.env.SMTP_USER}>`;
+  return "noreply@wellspring.edu";
 }
 
 function getTransporter() {
@@ -32,7 +37,7 @@ function getTransporter() {
 
 async function sendEmail({ to, subject, html, text, link }) {
   const mail = {
-    from: EMAIL_FROM,
+    from: emailFromAddress(),
     to,
     subject,
     html,
