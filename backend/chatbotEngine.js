@@ -36,6 +36,18 @@ const TERM_ALIASES = {
   accomodating: "accommodation",
   apply: "admission",
   applying: "admission",
+  admision: "admission",
+  admissions: "admission",
+  adress: "address",
+  address: "location",
+  wat: "what",
+  wht: "what",
+  wen: "when",
+  whn: "when",
+  wher: "where",
+  whre: "where",
+  located: "location",
+  loction: "location",
   hostel: "accommodation",
   hostels: "accommodation",
   log: "login",
@@ -61,8 +73,12 @@ const TERM_ALIASES = {
   lecturers: "lecture",
   classes: "lecture",
   class: "lecture",
+  couse: "course",
+  couses: "course",
   subjects: "course",
   courses: "course",
+  ofered: "offered",
+  offers: "offered",
   register: "registration",
   registering: "registration",
   registered: "registration",
@@ -79,6 +95,10 @@ const TERM_ALIASES = {
   sickbay: "clinic",
   centre: "center",
   hospital: "clinic",
+  exam: "examination",
+  exams: "examination",
+  exm: "examination",
+  timetable: "schedule",
   wifi: "internet",
   "wi-fi": "internet",
   elearning: "online",
@@ -99,8 +119,10 @@ const TERM_ALIASES = {
   adviser: "advisor",
   advisors: "advisor",
   hod: "head",
+  vc: "vice",
+  vancellor: "chancellor",
+  chancelor: "chancellor",
   id: "identity",
-  timetable: "schedule",
   instalment: "installment",
   instalments: "installment",
   installments: "installment",
@@ -110,9 +132,12 @@ const TERM_ALIASES = {
   organisations: "organization"
 };
 
+let vocabularyCache;
+
 function normalize(text = "") {
   return String(text)
     .toLowerCase()
+    .replace(/\bv\.?\s*c\.?\b/g, "vice chancellor")
     .replace(/can't/g, "cannot")
     .replace(/won't/g, "will not")
     .replace(/n't/g, " not")
@@ -121,10 +146,82 @@ function normalize(text = "") {
     .trim();
 }
 
+function editDistance(a, b) {
+  if (a === b) return 0;
+  if (!a || !b) return Math.max(a.length, b.length);
+  if (Math.abs(a.length - b.length) > 2) return 3;
+
+  const previous = Array.from({ length: b.length + 1 }, (_, index) => index);
+
+  for (let i = 1; i <= a.length; i += 1) {
+    const current = [i];
+
+    for (let j = 1; j <= b.length; j += 1) {
+      current[j] =
+        a[i - 1] === b[j - 1]
+          ? previous[j - 1]
+          : Math.min(previous[j - 1], previous[j], current[j - 1]) + 1;
+    }
+
+    previous.splice(0, previous.length, ...current);
+  }
+
+  return previous[b.length];
+}
+
+function getVocabulary() {
+  if (!vocabularyCache) {
+    const values = [
+      ...Object.keys(TERM_ALIASES),
+      ...Object.values(TERM_ALIASES),
+      ...knowledgeBase.flatMap((entry) => [
+        entry.id,
+        entry.category,
+        entry.question,
+        entry.answer,
+        ...(entry.keywords || []),
+        ...(entry.phrases || [])
+      ])
+    ];
+
+    vocabularyCache = unique(
+      values
+        .flatMap((value) => normalize(value).split(" "))
+        .map((token) => TERM_ALIASES[token] || token)
+        .filter((token) => token && token.length > 2 && !STOP_WORDS.has(token))
+    );
+  }
+
+  return vocabularyCache;
+}
+
+function correctToken(token) {
+  if (!token || STOP_WORDS.has(token)) return token;
+  if (TERM_ALIASES[token]) return TERM_ALIASES[token];
+
+  const vocabulary = getVocabulary();
+  if (vocabulary.includes(token)) return token;
+
+  const maxDistance = token.length >= 7 ? 2 : 1;
+  let bestToken = token;
+  let bestDistance = maxDistance + 1;
+
+  for (const candidate of vocabulary) {
+    const distance = editDistance(token, candidate);
+
+    if (distance < bestDistance) {
+      bestToken = candidate;
+      bestDistance = distance;
+    }
+  }
+
+  return bestDistance <= maxDistance ? bestToken : token;
+}
+
 function tokenize(text = "") {
   return normalize(text)
     .split(" ")
-    .map((token) => TERM_ALIASES[token] || token)
+    .map(correctToken)
     .filter((token) => token && !STOP_WORDS.has(token));
 }
 

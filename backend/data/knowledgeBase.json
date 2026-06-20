@@ -3,17 +3,25 @@
     "id": "about-wellspring",
     "category": "general",
     "question": "What is Wellspring University?",
-    "answer": "Wellspring University is a private university in Benin City, Edo State, Nigeria. For official updates, students should confirm through the university website, admission office, registry, student affairs office, or their department.",
-    "keywords": ["wellspring", "university", "private", "benin", "edo"],
-    "phrases": ["what is wellspring university", "about wellspring university", "where is wellspring university"]
+    "answer": "Wellspring University is a private university in Benin City, Edo State, Nigeria. Its official contact address is Irhirhi Road, off Airport Road by ADP Junction, Benin City, Edo State. The university's published contact emails are info@wellspringuniversity.edu.ng and registrar@wellspringuniversity.edu.ng.",
+    "keywords": ["wellspring", "university", "private", "benin", "edo", "location", "address", "contact"],
+    "phrases": ["what is wellspring university", "about wellspring university", "where is wellspring university", "location of wellspring", "wellspring university address", "where is the school located"]
+  },
+  {
+    "id": "wellspring-leadership",
+    "category": "general",
+    "question": "Who is the Vice Chancellor of Wellspring University?",
+    "answer": "The Vice Chancellor listed on Wellspring University's official leadership page is Prof. Isaac Rotimi Ajayi. Other listed officers include Pastor (Dr.) Ituah Ighodalo as Chancellor, Daniel Chiegile Isimoya as Pro-Chancellor and Chairman of the Governing Council, Prof. Patrick S. Ohikhena as Deputy Vice Chancellor, Dr. Helen Uzezi Wara as Registrar, Mr. Paradise Iwoh as Bursar, and Dr. Adedoyin Esan as University Librarian.",
+    "keywords": ["vice", "chancellor", "vc", "leadership", "management", "prof", "isaac", "rotimi", "ajayi", "registrar", "bursar", "librarian", "deputy", "officer"],
+    "phrases": ["vice chancellor", "name of vc", "who is the vc", "who is the vice chancellor", "wellspring leadership", "school management", "who is the registrar", "who is the bursar", "principal officers"]
   },
   {
     "id": "courses-offered",
     "category": "admissions",
     "question": "What courses are offered at this university?",
-    "answer": "For the current list of courses, programmes, schools, and departments, check the official Wellspring University admission materials or contact the admissions office. Programme availability can change, so confirm before applying.",
-    "keywords": ["course", "program", "programme", "offered", "department", "school", "faculty", "study"],
-    "phrases": ["what courses are offered", "courses offered at this university", "what can i study", "available programmes", "available programs", "departments in wellspring"]
+    "answer": "Wellspring University's published programmes include Nursing Science, Medical Laboratory Science, Public Health, Computer Science, Information Technology, Software Engineering, Microbiology, Biochemistry, Cyber Security, Criminology and Security Studies, Entrepreneurship, Accounting, Economics, Mass Communication, International Relations and Diplomacy, Public Administration, Business Administration, Human Resource Management, Hospitality and Tourism Studies, Data Science, Intelligence and Security Studies, JUPEB, part-time studies, and postgraduate programmes. Confirm the current list on the official admissions page before applying.",
+    "keywords": ["course", "program", "programme", "offered", "department", "school", "faculty", "study", "nursing", "computer", "software", "accounting", "economics", "mass", "communication", "public", "health", "cyber", "data"],
+    "phrases": ["what courses are offered", "courses offered at this university", "what can i study", "available programmes", "available programs", "departments in wellspring", "course the school offers", "courses the school offers", "list of courses", "school courses"]
   },
   {
     "id": "admission-requirements",
@@ -187,9 +195,9 @@
     "id": "exam-start",
     "category": "exams and results",
     "question": "When will exams start?",
-    "answer": "Exam start dates are announced through the academic calendar, departmental notices, or the exam timetable. Check your department or student portal for the current examination schedule.",
-    "keywords": ["exam", "examination", "start", "date", "timetable", "schedule"],
-    "phrases": ["when will exams start", "exam start", "examination timetable", "exam timetable"]
+    "answer": "Exam dates depend on your programme, level, and session. Wellspring University's official website has a Time Table page under Admissions. A published 2025/2026 top-up, part-time, PGD, MSc, and MBA timetable listed exams from Saturday, 21/02/2026 for those groups, but students should always confirm the latest current exam date from the official timetable, department, or student portal.",
+    "keywords": ["exam", "examination", "start", "date", "timetable", "schedule", "calendar", "session"],
+    "phrases": ["when will exams start", "exam start", "examination timetable", "exam timetable", "when is the exam", "when is my exam", "exam date", "latest timetable"]
   },
   {
     "id": "check-results",
