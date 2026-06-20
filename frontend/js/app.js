@@ -107,6 +107,36 @@ function setupThemeToggle() {
   });
 }
 
+function setupMobileMenu() {
+  const toggle = document.querySelector("[data-mobile-menu]");
+  const links = document.querySelector("[data-nav-links]");
+  if (!toggle || !links) return;
+
+  function closeMenu() {
+    links.classList.remove("open");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Open navigation menu");
+  }
+
+  toggle.addEventListener("click", () => {
+    const isOpen = links.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", String(isOpen));
+    toggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+  });
+
+  links.querySelectorAll("a, button").forEach((item) => {
+    item.addEventListener("click", closeMenu);
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 900) closeMenu();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeMenu();
+  });
+}
+
 function setupPasswordToggles() {
   document.querySelectorAll("[data-password-toggle]").forEach((button) => {
     const input = document.querySelector(button.dataset.passwordToggle);
@@ -123,6 +153,7 @@ function setupPasswordToggles() {
 
 document.addEventListener("DOMContentLoaded", () => {
   setupThemeToggle();
+  setupMobileMenu();
   setupPasswordToggles();
   markActiveNav();
   setupLogout();
