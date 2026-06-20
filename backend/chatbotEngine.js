@@ -48,6 +48,102 @@ function unique(values) {
   return [...new Set(values)];
 }
 
+function includesAny(tokens, values) {
+  return values.some((value) => tokens.includes(value));
+}
+
+function conversationalResponse(question) {
+  const normalizedQuestion = normalize(question);
+  const tokens = tokenize(question);
+  const compact = normalizedQuestion.replace(/\s/g, "");
+
+  if (!normalizedQuestion) return null;
+
+  const greetingPhrases = [
+    "good morning",
+    "good afternoon",
+    "good evening",
+    "hello",
+    "hi",
+    "hey"
+  ];
+
+  if (
+    greetingPhrases.includes(normalizedQuestion) ||
+    greetingPhrases.some((phrase) => normalizedQuestion.startsWith(`${phrase} `)) ||
+    ["hi", "hello", "hey", "yo"].includes(compact)
+  ) {
+    return {
+      answer:
+        "Hello! I am here to help with Wellspring University questions. You can ask about admissions, fees, login help, course registration, transcripts, accommodation, or student support.",
+      category: "salutation",
+      matchedQuestion: "Greeting"
+    };
+  }
+
+  if (
+    normalizedQuestion.includes("how are you") ||
+    normalizedQuestion.includes("how do you do") ||
+    normalizedQuestion.includes("how is it going")
+  ) {
+    return {
+      answer:
+        "I am doing well and ready to help. What would you like to know about Wellspring University?",
+      category: "salutation",
+      matchedQuestion: "How are you?"
+    };
+  }
+
+  if (
+    normalizedQuestion.includes("thank you") ||
+    normalizedQuestion.includes("thanks") ||
+    normalizedQuestion.includes("appreciate")
+  ) {
+    return {
+      answer: "You are welcome. Ask me another Wellspring University question whenever you are ready.",
+      category: "courtesy",
+      matchedQuestion: "Thanks"
+    };
+  }
+
+  if (includesAny(tokens, ["bye", "goodbye"]) || normalizedQuestion.includes("see you")) {
+    return {
+      answer: "Goodbye. I will be here whenever you need student support.",
+      category: "farewell",
+      matchedQuestion: "Goodbye"
+    };
+  }
+
+  if (
+    normalizedQuestion.includes("who are you") ||
+    normalizedQuestion.includes("what can you do") ||
+    normalizedQuestion.includes("help me") ||
+    normalizedQuestion.includes("your name")
+  ) {
+    return {
+      answer:
+        "I am the Wellspring University Student Assistant. I can answer student questions in English about admissions, login issues, password reset, fees, course registration, transcripts, accommodation, and support offices.",
+      category: "assistant help",
+      matchedQuestion: "Assistant help"
+    };
+  }
+
+  if (
+    normalizedQuestion.includes("speak english") ||
+    normalizedQuestion.includes("understand english") ||
+    normalizedQuestion.includes("english language")
+  ) {
+    return {
+      answer:
+        "Yes, you can chat with me in English. Ask your question naturally, and I will try to match it with the best Wellspring University information I have.",
+      category: "language",
+      matchedQuestion: "English language support"
+    };
+  }
+
+  return null;
+}
+
 function tokenOverlapScore(questionTokens, entryTokens) {
   if (!questionTokens.length || !entryTokens.length) return 0;
   const entrySet = new Set(entryTokens);
@@ -121,6 +217,19 @@ function scoreEntry(question, entry) {
 }
 
 function findBestAnswer(question) {
+  const conversational = conversationalResponse(question);
+
+  if (conversational) {
+    return {
+      ...conversational,
+      confidence: 1,
+      suggestions: [],
+      scores: {
+        conversational: 1
+      }
+    };
+  }
+
   const ranked = knowledgeBase
     .map((entry) => scoreEntry(question, entry))
     .sort((a, b) => b.confidence - a.confidence);
@@ -158,5 +267,6 @@ function findBestAnswer(question) {
 module.exports = {
   findBestAnswer,
   normalize,
-  tokenize
+  tokenize,
+  conversationalResponse
 };
