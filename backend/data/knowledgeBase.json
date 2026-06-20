@@ -64,6 +64,54 @@
     "phrases": ["hostel allocation", "student affairs", "accommodation questions"]
   },
   {
+    "id": "programmes",
+    "category": "academics",
+    "question": "What programmes or departments are available?",
+    "answer": "For the current list of programmes, schools, departments, and entry requirements, check the official Wellspring University admission materials or contact the admissions office. Programme availability can change, so confirm before applying or registering.",
+    "keywords": ["programme", "program", "department", "faculty", "school", "course", "available"],
+    "phrases": ["available programmes", "available programs", "what can i study", "departments in wellspring", "courses offered"]
+  },
+  {
+    "id": "academic-calendar",
+    "category": "academics",
+    "question": "Where can I find the academic calendar?",
+    "answer": "Academic calendar information is usually shared through official university notices, departments, or the student portal. Confirm dates for resumption, registration, lectures, examinations, and holidays with your department or student affairs.",
+    "keywords": ["calendar", "resumption", "semester", "holiday", "deadline", "date"],
+    "phrases": ["academic calendar", "resumption date", "semester calendar", "registration deadline", "when are we resuming"]
+  },
+  {
+    "id": "exams-results",
+    "category": "academics",
+    "question": "Who should I ask about exams or results?",
+    "answer": "For examination timetables, result issues, missing scores, or grade complaints, contact your department, course lecturer, level adviser, or exams and records office. Include your matric number, course code, level, and semester when asking for help.",
+    "keywords": ["exam", "examination", "result", "score", "grade", "timetable", "missing"],
+    "phrases": ["exam timetable", "check result", "missing result", "grade complaint", "examination result"]
+  },
+  {
+    "id": "library",
+    "category": "student services",
+    "question": "How can I get library support?",
+    "answer": "For library registration, borrowing books, research support, or access to learning resources, contact the university library or ask your department for the approved library process.",
+    "keywords": ["library", "book", "borrow", "research", "resources", "study"],
+    "phrases": ["library support", "borrow books", "learning resources", "research materials"]
+  },
+  {
+    "id": "ict-support",
+    "category": "portal",
+    "question": "Who helps with ICT or portal problems?",
+    "answer": "For portal errors, account access, email issues, internet access, or technical problems, contact ICT support. Share the exact error message, your matric number, and what you were trying to do.",
+    "keywords": ["ict", "portal", "technical", "internet", "email", "error", "account"],
+    "phrases": ["ict support", "portal error", "technical support", "internet access", "student email"]
+  },
+  {
+    "id": "clinic",
+    "category": "student services",
+    "question": "Where can I get medical help on campus?",
+    "answer": "For health or medical concerns, contact the university clinic or student affairs for the correct campus health support channel. If it is an emergency, seek immediate medical assistance.",
+    "keywords": ["clinic", "medical", "health", "sick", "emergency", "hospital"],
+    "phrases": ["medical help", "university clinic", "health support", "i am sick", "campus clinic"]
+  },
+  {
     "id": "contact-office",
     "category": "support",
     "question": "Who should I contact for help?",

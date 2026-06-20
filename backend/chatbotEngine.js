@@ -30,9 +30,62 @@ const STOP_WORDS = new Set([
   "with"
 ]);
 
+const TERM_ALIASES = {
+  accomodation: "accommodation",
+  accomodate: "accommodation",
+  accomodating: "accommodation",
+  apply: "admission",
+  applying: "admission",
+  hostel: "accommodation",
+  hostels: "accommodation",
+  log: "login",
+  sign: "login",
+  signin: "login",
+  "sign-in": "login",
+  "log-in": "login",
+  username: "login",
+  tuition: "fees",
+  payments: "payment",
+  pay: "payment",
+  receipt: "receipts",
+  results: "result",
+  grades: "result",
+  lectures: "lecture",
+  classes: "lecture",
+  subjects: "course",
+  courses: "course",
+  register: "registration",
+  registering: "registration",
+  transcript: "records",
+  transcripts: "records",
+  certificate: "records",
+  certificates: "records",
+  doctor: "clinic",
+  nurse: "clinic",
+  sickbay: "clinic",
+  hospital: "clinic",
+  wifi: "internet",
+  "wi-fi": "internet",
+  jamb: "admission",
+  utme: "admission",
+  postutme: "admission",
+  "post-utme": "admission",
+  languages: "language",
+  programme: "program",
+  programmes: "program",
+  programs: "program",
+  department: "school",
+  departments: "school",
+  faculty: "school",
+  faculties: "school"
+};
+
 function normalize(text = "") {
   return String(text)
     .toLowerCase()
+    .replace(/can't/g, "cannot")
+    .replace(/won't/g, "will not")
+    .replace(/n't/g, " not")
     .replace(/[^a-z0-9\s]/g, " ")
     .replace(/\s+/g, " ")
     .trim();
@@ -41,6 +94,7 @@ function normalize(text = "") {
 function tokenize(text = "") {
   return normalize(text)
     .split(" ")
+    .map((token) => TERM_ALIASES[token] || token)
     .filter((token) => token && !STOP_WORDS.has(token));
 }
 
@@ -55,6 +109,7 @@ function includesAny(tokens, values) {
 function conversationalResponse(question) {
   const normalizedQuestion = normalize(question);
   const tokens = tokenize(question);
+  const tokenSet = new Set(tokens);
   const compact = normalizedQuestion.replace(/\s/g, "");
 
   if (!normalizedQuestion) return null;
@@ -63,9 +118,12 @@ function conversationalResponse(question) {
     "good morning",
     "good afternoon",
     "good evening",
+    "good day",
+    "greetings",
     "hello",
     "hi",
-    "hey"
+    "hey",
+    "how far"
   ];
 
   if (
@@ -131,13 +189,21 @@ function conversationalResponse(question) {
   if (
     normalizedQuestion.includes("speak english") ||
     normalizedQuestion.includes("understand english") ||
-    normalizedQuestion.includes("english language")
+    normalizedQuestion.includes("english language") ||
+    normalizedQuestion.includes("human language") ||
+    normalizedQuestion.includes("human languages") ||
+    normalizedQuestion.includes("natural language") ||
+    normalizedQuestion.includes("normal english") ||
+    compact.includes("understandlanguage") ||
+    compact.includes("understandhumanlanguage") ||
+    compact.includes("understandlanguages") ||
+    (tokenSet.has("understand") && tokenSet.has("language"))
   ) {
     return {
       answer:
-        "Yes, you can chat with me in English. Ask your question naturally, and I will try to match it with the best Wellspring University information I have.",
+        "Yes. You can chat with me in natural English, including greetings and everyday student questions. I can help with Wellspring University topics such as admissions, fees, portal login, course registration, transcripts, accommodation, exams, library, ICT, and student support.",
       category: "language",
-      matchedQuestion: "English language support"
+      matchedQuestion: "Human language support"
     };
   }
 
@@ -154,7 +220,7 @@ function tokenOverlapScore(questionTokens, entryTokens) {
 function keywordCoverageScore(questionTokens, keywords = []) {
   if (!keywords.length) return 0;
   const questionSet = new Set(questionTokens);
-  const matched = keywords.filter((keyword) => questionSet.has(normalize(keyword)));
+  const matched = keywords.filter((keyword) => tokenize(keyword).some((token) => questionSet.has(token)));
   return matched.length / keywords.length;
 }
 
@@ -192,7 +258,9 @@ function categoryScore(questionTokens, category = "") {
 function scoreEntry(question, entry) {
   const normalizedQuestion = normalize(question);
   const questionTokens = tokenize(question);
-  const entryTokens = tokenize(`${entry.question} ${entry.category} ${(entry.keywords || []).join(" ")}`);
+  const entryTokens = tokenize(
+    `${entry.question} ${entry.category} ${entry.answer} ${(entry.keywords || []).join(" ")} ${(entry.phrases || []).join(" ")}`
+  );
 
   const scores = {
     tokenOverlap: tokenOverlapScore(questionTokens, entryTokens),
