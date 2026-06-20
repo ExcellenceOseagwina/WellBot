@@ -57,7 +57,7 @@ async function apiRequest(path, options = {}) {
 }
 
 function markActiveNav() {
-  const current = location.pathname.split("/").pop() || "index.html";
+  const current = location.pathname.split("/").pop() || "home.html";
   document.querySelectorAll("[data-nav]").forEach((link) => {
     if (link.getAttribute("href") === current) link.classList.add("active");
   });

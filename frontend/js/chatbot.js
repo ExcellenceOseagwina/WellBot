@@ -41,6 +41,20 @@ document.addEventListener("DOMContentLoaded", async () => {
     messages.scrollTop = messages.scrollHeight;
   }
 
+  function addTypingIndicator() {
+    const indicator = document.createElement("div");
+    indicator.className = "message bot typing";
+    indicator.setAttribute("aria-label", "Assistant is typing");
+    indicator.innerHTML = `
+      <span class="typing-dot"></span>
+      <span class="typing-dot"></span>
+      <span class="typing-dot"></span>
+    `;
+    messages.appendChild(indicator);
+    messages.scrollTop = messages.scrollHeight;
+    return indicator;
+  }
+
   addMessage(
     `Hello ${session.student?.username || "there"}. Ask me about admissions, course registration, academics, exams, fees, portal help, campus services, hostel, departments, timetables, or student support.`,
     "bot"
@@ -52,6 +66,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     addMessage(question, "user");
     input.value = "";
+    const typingIndicator = addTypingIndicator();
 
     try {
       const result = await apiRequest("/api/chat", {
@@ -60,12 +75,14 @@ document.addEventListener("DOMContentLoaded", async () => {
         body: JSON.stringify({ question })
       });
 
+      typingIndicator.remove();
       addMessage(result.answer, "bot", {
         confidence: result.confidence,
         category: result.category,
         suggestions: result.suggestions
       });
     } catch (error) {
+      typingIndicator.remove();
       addMessage(error.message, "bot");
     }
   }

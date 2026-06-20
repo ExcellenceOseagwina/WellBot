@@ -575,7 +575,7 @@ app.get("/api/conversations", authMiddleware, async (req, res) => {
 });
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(frontendPath, "index.html"));
+  res.sendFile(path.join(frontendPath, "home.html"));
 });
 
 async function startServer() {
