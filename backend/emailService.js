@@ -2,6 +2,7 @@ const nodemailer = require("nodemailer");
 
 const APP_NAME = "Wellspring Student Assistant";
 const APP_BASE_URL = process.env.APP_BASE_URL || "http://localhost:5000";
+const IS_PRODUCTION = process.env.NODE_ENV === "production" || process.env.VERCEL_ENV === "production";
 
 let transporter = null;
 
@@ -47,6 +48,8 @@ async function sendEmail({ to, subject, html, text, link }) {
   const transport = getTransporter();
 
   if (!transport) {
+    if (IS_PRODUCTION) return { dev: true, link };
+
     console.log("\n--- Email (dev mode - SMTP not configured) ---");
     console.log(`To: ${to}`);
     console.log(`Subject: ${subject}`);

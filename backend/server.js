@@ -15,7 +15,13 @@ const { isSmtpConfigured, sendVerificationEmail, sendPasswordResetEmail } = requ
 const app = express();
 const PORT = process.env.PORT || 5000;
 const JWT_SECRET = process.env.JWT_SECRET || "development_secret_change_me";
-const frontendPath = path.join(__dirname, "..", "frontend");
+const frontendPath = path.join(__dirname, "..", "frontend");
+
+const IS_PRODUCTION = process.env.NODE_ENV === "production" || process.env.VERCEL_ENV === "production";
+
+function shouldExposeDevEmailLink(emailResult) {
+  return Boolean(emailResult.dev && !IS_PRODUCTION);
+}
 
 const memoryStore = {
   students: [],
@@ -363,14 +369,17 @@ app.post("/api/auth/signup", async (req, res) => {
     });
 
     const emailResult = await sendVerificationEmail(student.email, rawToken);
+    const exposeDevLink = shouldExposeDevEmailLink(emailResult);
 
     res.status(201).json({
       message: emailResult.dev
-        ? "Account created, but email delivery is not configured. Use the verification link shown below."
+        ? exposeDevLink
+          ? "Account created, but email delivery is not configured. Use the verification link shown below."
+          : "Account created, but email delivery is not configured on this server. Please contact support to verify your account."
         : "Account created. Please check your email to verify your account.",
       email: student.email,
 
-      devVerificationLink: emailResult.dev ? emailResult.link : undefined
+      devVerificationLink: exposeDevLink ? emailResult.link : undefined
     });
   } catch (error) {
     res.status(500).json({ message: "Unable to create account.", detail: error.message });
@@ -460,11 +469,15 @@ app.post("/api/auth/resend-verification", async (req, res) => {
 
     const emailResult = await sendVerificationEmail(student.email, rawToken);
 
+    const exposeDevLink = shouldExposeDevEmailLink(emailResult);
+
     res.json({
       message: emailResult.dev
-        ? "Email delivery is not configured. Use the verification link shown below."
+        ? exposeDevLink
+          ? "Email delivery is not configured. Use the verification link shown below."
+          : "Email delivery is not configured on this server. Please contact support to verify your account."
         : "If the email exists and is unverified, a new verification link will be sent.",
-      devVerificationLink: emailResult.dev ? emailResult.link : undefined
+      devVerificationLink: exposeDevLink ? emailResult.link : undefined
     });
   } catch (error) {
     res.status(500).json({ message: "Unable to resend verification email.", detail: error.message });
@@ -493,12 +506,15 @@ app.post("/api/auth/forgot-password", async (req, res) => {
     });
 
     const emailResult = await sendPasswordResetEmail(student.email, rawToken);
+    const exposeDevLink = shouldExposeDevEmailLink(emailResult);
 
     res.json({
       message: emailResult.dev
-        ? "Email delivery is not configured. Use the password reset link shown below."
+        ? exposeDevLink
+          ? "Email delivery is not configured. Use the password reset link shown below."
+          : "Email delivery is not configured on this server. Please contact support to reset your password."
         : "If the email exists, password reset instructions will be sent.",
-      devResetLink: emailResult.dev ? emailResult.link : undefined
+      devResetLink: exposeDevLink ? emailResult.link : undefined
     });
   } catch (error) {
     res.status(500).json({ message: "Unable to request password reset.", detail: error.message });

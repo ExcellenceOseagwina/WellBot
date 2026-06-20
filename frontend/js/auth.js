@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
           body: JSON.stringify(payload)
         });
         const params = new URLSearchParams({ pending: "1", email: result.email });
+        if (result.message) params.set("message", result.message);
         if (result.devVerificationLink) params.set("devVerificationLink", result.devVerificationLink);
         location.href = `verify-email.html?${params.toString()}`;
       } catch (error) {
@@ -128,6 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const token = params.get("token");
     const pending = params.get("pending");
     const email = params.get("email");
+    const statusMessage = params.get("message");
     const devVerificationLink = params.get("devVerificationLink");
 
     const verifyPending = document.querySelector("#verifyPending");
@@ -141,6 +143,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (email) {
         document.querySelector("#pendingEmail").textContent = email;
         document.querySelector("#resendEmail").value = email;
+      }
+      if (statusMessage) {
+        const pendingMessage = document.querySelector("#pendingMessage");
+        pendingMessage.textContent = statusMessage;
+        pendingMessage.classList.toggle("success", !statusMessage.includes("not configured"));
       }
       if (devVerificationLink) showDevLink("#pendingMessage", devVerificationLink, "confirmation", "Verify email");
     } else {
