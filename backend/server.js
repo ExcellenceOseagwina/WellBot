@@ -17,12 +17,22 @@ const PORT = process.env.PORT || 5000;
 const JWT_SECRET = process.env.JWT_SECRET || "development_secret_change_me";
 const frontendPath = path.join(__dirname, "..", "frontend");
 
-const memoryStore = {
+const memoryStore = {
   students: [],
   conversations: [],
   resetRequests: [],
   verificationTokens: []
-};
+};
+
+let storageReadyPromise = null;
+
+function ensureStorageReady() {
+  if (!storageReadyPromise) {
+    storageReadyPromise = db.ensureSupabaseReady();
+  }
+
+  return storageReadyPromise;
+}
 
 async function withDatabase(supabaseQuery, memoryQuery) {
   if (!db.supabase) return memoryQuery();
@@ -41,7 +51,16 @@ async function withDatabase(supabaseQuery, memoryQuery) {
 app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
-app.use(express.static(frontendPath));
+app.use(express.static(frontendPath));
+
+app.use(async (req, res, next) => {
+  try {
+    await ensureStorageReady();
+    next();
+  } catch (error) {
+    next(error);
+  }
+});
 
 function createToken(student) {
   return jwt.sign(
@@ -579,7 +598,7 @@ app.get("*", (req, res) => {
 });
 
 async function startServer() {
-  await db.ensureSupabaseReady();
+  await ensureStorageReady();
 
   app.listen(PORT, () => {
     const storage = db.supabase ? "supabase" : "memory";
@@ -587,8 +606,19 @@ async function startServer() {
   });
 }
 
-startServer().catch((error) => {
-  console.error("Failed to start server:", error.message);
-  process.exit(1);
-});
+if (require.main === module) {
+
+  startServer().catch((error) => {
+
+    console.error("Failed to start server:", error.message);
+
+    process.exit(1);
+
+  });
+
+}
+
+
+
+module.exports = app;
 
