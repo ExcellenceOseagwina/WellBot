@@ -3,120 +3,464 @@
     "id": "about-wellspring",
     "category": "general",
     "question": "What is Wellspring University?",
-    "answer": "Wellspring University is a private university in Benin City, Edo State, Nigeria. Students should confirm official updates through the university website, admission office, student affairs office, or their department.",
+    "answer": "Wellspring University is a private university in Benin City, Edo State, Nigeria. For official updates, students should confirm through the university website, admission office, registry, student affairs office, or their department.",
     "keywords": ["wellspring", "university", "private", "benin", "edo"],
     "phrases": ["what is wellspring university", "about wellspring university", "where is wellspring university"]
   },
   {
-    "id": "admission-support",
+    "id": "courses-offered",
     "category": "admissions",
-    "question": "How do I get admission information?",
-    "answer": "For admission information, visit Wellspring University's official admission channels or contact the admissions office. Keep your email address, phone number, academic records, and application details ready when requesting support.",
-    "keywords": ["admission", "apply", "application", "requirements", "screening"],
-    "phrases": ["admission information", "how do i apply", "application requirements", "admission requirements"]
+    "question": "What courses are offered at this university?",
+    "answer": "For the current list of courses, programmes, schools, and departments, check the official Wellspring University admission materials or contact the admissions office. Programme availability can change, so confirm before applying.",
+    "keywords": ["course", "program", "programme", "offered", "department", "school", "faculty", "study"],
+    "phrases": ["what courses are offered", "courses offered at this university", "what can i study", "available programmes", "available programs", "departments in wellspring"]
   },
   {
-    "id": "student-login",
-    "category": "portal",
-    "question": "How do I log in as a student?",
-    "answer": "Use your matric number and password to log in. If you cannot log in, check that your matric number is typed correctly, reset your password, or contact ICT/student support.",
-    "keywords": ["login", "portal", "matric", "password", "student"],
-    "phrases": ["student login", "matric number", "forgot password", "cannot login"]
+    "id": "admission-requirements",
+    "category": "admissions",
+    "question": "What are the admission requirements?",
+    "answer": "Admission requirements depend on the programme and entry route. Students should confirm the required O'Level results, UTME or direct entry requirements, screening details, and any programme-specific conditions from the admissions office or official admission portal.",
+    "keywords": ["admission", "requirements", "o'level", "olevel", "utme", "direct", "entry", "screening"],
+    "phrases": ["admission requirements", "requirements for admission", "entry requirements", "what do i need for admission"]
   },
   {
-    "id": "password-reset",
-    "category": "portal",
-    "question": "How do I reset my password?",
-    "answer": "Open the reset password page, enter the email address linked to your account, and follow the reset instructions. If you still need help, contact ICT/student support.",
-    "keywords": ["reset", "password", "forgot", "email", "account"],
-    "phrases": ["reset password", "forgot my password", "recover account"]
+    "id": "apply-for-admission",
+    "category": "admissions",
+    "question": "How do I apply for admission?",
+    "answer": "Apply through the official Wellspring University admission channel. Prepare your personal details, email address, phone number, academic records, preferred programme, and payment evidence if an application fee is required. Avoid unofficial application links.",
+    "keywords": ["apply", "application", "admission", "form", "candidate"],
+    "phrases": ["how do i apply", "apply for admission", "admission form", "application form", "how to apply for admission"]
   },
   {
-    "id": "fees",
+    "id": "application-deadline",
+    "category": "admissions",
+    "question": "When is the application deadline?",
+    "answer": "Application deadlines can change by admission session and programme. Check the official admission notice, admission portal, or admissions office for the current deadline before submitting your application.",
+    "keywords": ["application", "deadline", "closing", "date", "admission", "session"],
+    "phrases": ["application deadline", "admission deadline", "closing date", "when is the application deadline"]
+  },
+  {
+    "id": "admission-documents",
+    "category": "admissions",
+    "question": "What documents do I need for admission?",
+    "answer": "Common admission documents may include O'Level results, UTME or direct entry documents, birth certificate or age declaration, passport photograph, application evidence, and identification details. Confirm the exact document list with admissions because requirements can vary.",
+    "keywords": ["documents", "admission", "passport", "result", "certificate", "utme", "olevel"],
+    "phrases": ["documents for admission", "what documents do i need", "admission documents", "documents required"]
+  },
+  {
+    "id": "admission-status",
+    "category": "admissions",
+    "question": "How do I check my admission status?",
+    "answer": "Check your admission status through the official admission portal or contact the admissions office. Have your application number, email address, phone number, or other application details ready.",
+    "keywords": ["admission", "status", "check", "portal", "application"],
+    "phrases": ["check my admission status", "admission status", "have i been admitted", "check admission"]
+  },
+  {
+    "id": "transfer-admission",
+    "category": "admissions",
+    "question": "Can I transfer from another university?",
+    "answer": "Transfer admission is handled by the admissions office and may depend on your current institution, transcript, level, programme, and university rules. Contact admissions or registry for the official transfer process.",
+    "keywords": ["transfer", "university", "transcript", "admission", "level"],
+    "phrases": ["transfer from another university", "transfer admission", "can i transfer", "inter university transfer"]
+  },
+  {
+    "id": "defer-admission",
+    "category": "admissions",
+    "question": "How do I defer my admission?",
+    "answer": "To defer admission, contact the admissions office or registry and ask for the official deferment process. You may need to submit a written request and provide your admission details before the approved deadline.",
+    "keywords": ["defer", "deferment", "admission", "postpone", "session"],
+    "phrases": ["defer my admission", "defer admission", "postpone my admission"]
+  },
+  {
+    "id": "tuition-program-fee",
     "category": "finance",
-    "question": "Where can I ask about school fees?",
-    "answer": "For school fees, payment confirmation, receipts, or balances, contact the bursary or check the official student payment channel. Do not pay into unofficial accounts.",
-    "keywords": ["fees", "payment", "bursary", "receipt", "balance"],
-    "phrases": ["school fees", "pay fees", "payment confirmation", "fee balance"]
+    "question": "What is the tuition fee for my program?",
+    "answer": "Tuition and programme fees can differ by programme, level, session, and payment category. Check the official fee schedule, student portal, or bursary office for the exact amount for your programme.",
+    "keywords": ["tuition", "fee", "fees", "program", "programme", "school", "amount"],
+    "phrases": ["tuition fee", "fee for my program", "fee for my programme", "how much is my program", "school fees"]
   },
   {
     "id": "course-registration",
-    "category": "academics",
-    "question": "How do I register courses?",
-    "answer": "Students should follow the official course registration process provided by their department or portal. Confirm your level, semester, required courses, electives, and adviser approval before final submission.",
-    "keywords": ["course", "registration", "semester", "department", "adviser"],
-    "phrases": ["course registration", "register courses", "semester courses", "department adviser"]
+    "category": "course registration",
+    "question": "How do I register my courses?",
+    "answer": "Register courses through the approved student portal or departmental process. Confirm your level, semester, compulsory courses, electives, unit load, and adviser approval before final submission.",
+    "keywords": ["course", "registration", "register", "semester", "portal", "adviser", "advisor"],
+    "phrases": ["register my courses", "course registration", "how do i register courses", "register courses"]
+  },
+  {
+    "id": "course-registration-deadline",
+    "category": "course registration",
+    "question": "What is the deadline for course registration?",
+    "answer": "Course registration deadlines are usually announced by the university, department, or student portal. Confirm the current deadline early because late registration may attract penalties or require approval.",
+    "keywords": ["course", "registration", "deadline", "late", "semester", "date"],
+    "phrases": ["deadline for course registration", "course registration deadline", "late course registration", "registration deadline"]
+  },
+  {
+    "id": "add-drop-course",
+    "category": "course registration",
+    "question": "Can I add or drop a course?",
+    "answer": "Adding or dropping a course depends on the university's registration rules and deadline. Speak with your academic adviser or department before making changes so your course form remains valid.",
+    "keywords": ["add", "drop", "course", "change", "registration", "adviser", "advisor"],
+    "phrases": ["add or drop a course", "drop a course", "add a course", "change my courses"]
+  },
+  {
+    "id": "maximum-units",
+    "category": "course registration",
+    "question": "What is the maximum number of units I can register?",
+    "answer": "The maximum course unit load depends on your programme, level, semester, and academic standing. Confirm your allowed units with your department or academic adviser before submitting registration.",
+    "keywords": ["maximum", "unit", "units", "register", "load", "course"],
+    "phrases": ["maximum number of units", "maximum units", "unit load", "how many units can i register"]
+  },
+  {
+    "id": "view-registered-courses",
+    "category": "course registration",
+    "question": "How do I view my registered courses?",
+    "answer": "Log in to the student portal and open the course registration or registered courses section. If your courses are missing, contact your department, academic adviser, or ICT support.",
+    "keywords": ["view", "registered", "course", "portal", "course form"],
+    "phrases": ["view my registered courses", "registered courses", "see my courses", "print my course form"]
+  },
+  {
+    "id": "semester-courses",
+    "category": "course registration",
+    "question": "What courses are available this semester?",
+    "answer": "Semester courses are usually provided by your department or shown in the student portal. Check the departmental timetable, course list, or ask your academic adviser for the approved courses for your level.",
+    "keywords": ["semester", "course", "available", "department", "level", "timetable"],
+    "phrases": ["courses available this semester", "semester courses", "available this semester", "courses for this semester"]
+  },
+  {
+    "id": "gpa-cgpa",
+    "category": "academic information",
+    "question": "What is my GPA or CGPA?",
+    "answer": "Your GPA or CGPA is personal academic information and should be checked through the student portal, results office, or department. This chatbot can explain what GPA and CGPA mean, but it cannot calculate your live CGPA unless your grades and units are provided or connected to the system.",
+    "keywords": ["gpa", "cgpa", "grade", "point", "average", "current"],
+    "phrases": ["what is my gpa", "what is my cgpa", "current cgpa", "my gpa", "my cgpa"]
+  },
+  {
+    "id": "cgpa-calculation",
+    "category": "academic information",
+    "question": "How is CGPA calculated?",
+    "answer": "CGPA is usually calculated by dividing total grade points earned by total credit units attempted across semesters. Your department or academic handbook should confirm the university's exact grading and calculation rules.",
+    "keywords": ["cgpa", "calculate", "calculated", "grade", "point", "unit"],
+    "phrases": ["how is cgpa calculated", "calculate cgpa", "cgpa calculation", "how to calculate cgpa"]
+  },
+  {
+    "id": "graduation-requirements",
+    "category": "academic information",
+    "question": "What are the requirements for graduation?",
+    "answer": "Graduation requirements may include passing all compulsory and required elective courses, completing the required credit units, meeting CGPA requirements, clearing carryovers, completing projects or SIWES where applicable, and finishing all financial or clearance obligations.",
+    "keywords": ["graduation", "graduate", "requirements", "units", "carryover", "clearance"],
+    "phrases": ["requirements for graduation", "graduate requirements", "what do i need to graduate", "courses i need to graduate"]
+  },
+  {
+    "id": "failed-course",
+    "category": "academic information",
+    "question": "What happens if I fail a course?",
+    "answer": "If you fail a course, you may need to retake it as a carryover or follow your department's approved process. Speak with your academic adviser to understand how it affects your registration, unit load, and graduation plan.",
+    "keywords": ["fail", "failed", "course", "carryover", "retake", "repeat"],
+    "phrases": ["if i fail a course", "failed a course", "what happens if i fail", "retake a course"]
+  },
+  {
+    "id": "carryover-course",
+    "category": "academic information",
+    "question": "What is a carryover course?",
+    "answer": "A carryover course is usually a course a student must retake or complete because they did not pass or satisfy the course requirement earlier. Your department can confirm how to register and clear it.",
+    "keywords": ["carryover", "course", "failed", "retake", "repeat"],
+    "phrases": ["carryover course", "what is carryover", "what is a carryover course", "clear carryover"]
   },
   {
     "id": "transcript",
     "category": "records",
-    "question": "How can I request a transcript?",
+    "question": "How do I apply for a transcript?",
     "answer": "Transcript requests should go through the registry or official records office. Provide your full name, matric number, programme, graduation year if applicable, and destination details.",
-    "keywords": ["transcript", "registry", "records", "graduation", "matric"],
-    "phrases": ["request transcript", "academic records", "registry office"]
-  },
-  {
-    "id": "hostel",
-    "category": "student affairs",
-    "question": "Who handles hostel or accommodation questions?",
-    "answer": "Hostel and accommodation questions should be directed to student affairs or the unit responsible for accommodation. Ask about availability, allocation, payment, and hostel rules.",
-    "keywords": ["hostel", "accommodation", "student", "affairs", "allocation"],
-    "phrases": ["hostel allocation", "student affairs", "accommodation questions"]
-  },
-  {
-    "id": "programmes",
-    "category": "academics",
-    "question": "What programmes or departments are available?",
-    "answer": "For the current list of programmes, schools, departments, and entry requirements, check the official Wellspring University admission materials or contact the admissions office. Programme availability can change, so confirm before applying or registering.",
-    "keywords": ["programme", "program", "department", "faculty", "school", "course", "available"],
-    "phrases": ["available programmes", "available programs", "what can i study", "departments in wellspring", "courses offered"]
+    "keywords": ["transcript", "registry", "records", "graduation", "matric", "apply"],
+    "phrases": ["apply for a transcript", "request transcript", "academic records", "registry office"]
   },
   {
     "id": "academic-calendar",
-    "category": "academics",
-    "question": "Where can I find the academic calendar?",
+    "category": "academic information",
+    "question": "What is the academic calendar for this session?",
     "answer": "Academic calendar information is usually shared through official university notices, departments, or the student portal. Confirm dates for resumption, registration, lectures, examinations, and holidays with your department or student affairs.",
-    "keywords": ["calendar", "resumption", "semester", "holiday", "deadline", "date"],
-    "phrases": ["academic calendar", "resumption date", "semester calendar", "registration deadline", "when are we resuming"]
+    "keywords": ["calendar", "academic", "session", "resumption", "semester", "holiday", "deadline", "date"],
+    "phrases": ["academic calendar", "calendar for this session", "resumption date", "semester calendar", "when are we resuming"]
   },
   {
-    "id": "exams-results",
-    "category": "academics",
-    "question": "Who should I ask about exams or results?",
-    "answer": "For examination timetables, result issues, missing scores, or grade complaints, contact your department, course lecturer, level adviser, or exams and records office. Include your matric number, course code, level, and semester when asking for help.",
-    "keywords": ["exam", "examination", "result", "score", "grade", "timetable", "missing"],
-    "phrases": ["exam timetable", "check result", "missing result", "grade complaint", "examination result"]
+    "id": "exam-start",
+    "category": "exams and results",
+    "question": "When will exams start?",
+    "answer": "Exam start dates are announced through the academic calendar, departmental notices, or the exam timetable. Check your department or student portal for the current examination schedule.",
+    "keywords": ["exam", "examination", "start", "date", "timetable", "schedule"],
+    "phrases": ["when will exams start", "exam start", "examination timetable", "exam timetable"]
   },
   {
-    "id": "library",
-    "category": "student services",
-    "question": "How can I get library support?",
-    "answer": "For library registration, borrowing books, research support, or access to learning resources, contact the university library or ask your department for the approved library process.",
-    "keywords": ["library", "book", "borrow", "research", "resources", "study"],
-    "phrases": ["library support", "borrow books", "learning resources", "research materials"]
+    "id": "check-results",
+    "category": "exams and results",
+    "question": "How do I check my results?",
+    "answer": "Results are usually checked through the student portal or department-approved results channel. If you cannot see a result, contact your department, course lecturer, or records office with your matric number and course code.",
+    "keywords": ["check", "result", "results", "grade", "portal", "score"],
+    "phrases": ["check my results", "check result", "view result", "see my grades"]
+  },
+  {
+    "id": "missing-result",
+    "category": "exams and results",
+    "question": "What should I do if my result is missing?",
+    "answer": "For a missing result, contact your course lecturer, department, level adviser, or exams and records office. Provide your matric number, course code, level, semester, and any evidence of registration or assessment.",
+    "keywords": ["missing", "result", "score", "grade", "lecturer", "records"],
+    "phrases": ["missing result", "result is missing", "my result is missing", "missing score"]
+  },
+  {
+    "id": "result-verification",
+    "category": "exams and results",
+    "question": "How can I apply for result verification?",
+    "answer": "Result verification or remarking should follow the official departmental or exams office process. Ask your department for the form, deadline, fee if any, and evidence required.",
+    "keywords": ["result", "verification", "verify", "remark", "complaint", "grade"],
+    "phrases": ["result verification", "apply for result verification", "verify my result", "grade complaint"]
+  },
+  {
+    "id": "grading-system",
+    "category": "exams and results",
+    "question": "What is the grading system used by the university?",
+    "answer": "The grading system should be confirmed from the academic handbook, department, or exams and records office. They can provide the official grade letters, grade points, pass marks, and CGPA classification rules.",
+    "keywords": ["grading", "grade", "system", "points", "pass", "classification"],
+    "phrases": ["grading system", "university grading system", "grade points", "pass mark"]
+  },
+  {
+    "id": "next-semester",
+    "category": "academic information",
+    "question": "When will the next semester begin?",
+    "answer": "The next semester start date should be confirmed from the academic calendar, university notices, student portal, or your department.",
+    "keywords": ["next", "semester", "begin", "start", "resumption", "date"],
+    "phrases": ["next semester begin", "when will the next semester begin", "next semester start", "semester begin"]
+  },
+  {
+    "id": "school-fees",
+    "category": "fees and payments",
+    "question": "How much are the school fees?",
+    "answer": "School fees can vary by programme, level, session, and payment category. Check the official fee schedule, student portal, or bursary office for the exact amount. Do not pay into unofficial accounts.",
+    "keywords": ["school", "fees", "fee", "tuition", "amount", "bursary"],
+    "phrases": ["how much are the school fees", "school fees", "fee balance", "tuition fee"]
+  },
+  {
+    "id": "pay-fees-online",
+    "category": "fees and payments",
+    "question": "How do I pay my fees online?",
+    "answer": "Use only the official university payment channel or student portal to pay fees online. Confirm the payment steps with the bursary or portal instructions and keep your receipt or transaction reference.",
+    "keywords": ["pay", "payment", "fees", "online", "portal", "receipt"],
+    "phrases": ["pay my fees online", "pay fees online", "online payment", "payment confirmation"]
+  },
+  {
+    "id": "installment-payment",
+    "category": "fees and payments",
+    "question": "Can I pay in installments?",
+    "answer": "Installment payment rules depend on the university's current fee policy. Contact the bursary or check the official payment notice to confirm whether installment payment is allowed for your session.",
+    "keywords": ["installment", "instalment", "part", "payment", "fees", "bursary"],
+    "phrases": ["pay in installments", "pay in instalments", "part payment", "installment payment"]
+  },
+  {
+    "id": "payment-receipt",
+    "category": "fees and payments",
+    "question": "How do I print my payment receipt?",
+    "answer": "After payment, log in to the official student payment portal and check the receipt, payment history, or transaction section. If your receipt is not showing, contact bursary or ICT support with your transaction reference.",
+    "keywords": ["print", "payment", "receipt", "transaction", "reference", "portal"],
+    "phrases": ["print my payment receipt", "payment receipt", "receipt not showing", "print receipt"]
+  },
+  {
+    "id": "scholarships-financial-aid",
+    "category": "fees and payments",
+    "question": "Are there scholarships or financial aid available?",
+    "answer": "Scholarships and financial aid depend on current university, government, private, or donor opportunities. Contact student affairs, admissions, or the appropriate university office for available options and application requirements.",
+    "keywords": ["scholarship", "scholarships", "financial", "aid", "support", "grant"],
+    "phrases": ["scholarships available", "financial aid", "apply for financial aid", "apply for scholarship"]
+  },
+  {
+    "id": "student-login",
+    "category": "student portal",
+    "question": "How do I access the student portal?",
+    "answer": "Access the student portal using the official portal link and your approved login details, usually your matric number or student credentials. If access fails, check your details, reset your password, or contact ICT support.",
+    "keywords": ["login", "portal", "matric", "password", "student", "access", "account"],
+    "phrases": ["student portal", "access the student portal", "log in", "login", "cannot login", "can't log in"]
+  },
+  {
+    "id": "password-reset",
+    "category": "student portal",
+    "question": "I forgot my password. How do I reset it?",
+    "answer": "Open the reset password page, enter the email address linked to your account, and follow the reset instructions. If you still need help, contact ICT or student support.",
+    "keywords": ["reset", "password", "forgot", "email", "account", "recover"],
+    "phrases": ["reset password", "forgot my password", "recover account", "forgot password"]
+  },
+  {
+    "id": "update-profile",
+    "category": "student portal",
+    "question": "How do I update my profile?",
+    "answer": "Profile updates are usually handled through the student portal or registry. For sensitive details like name, date of birth, email, or programme, contact registry or ICT support because documents may be required.",
+    "keywords": ["update", "profile", "details", "email", "phone", "name"],
+    "phrases": ["update my profile", "change my profile", "update my details", "change my email"]
+  },
+  {
+    "id": "course-form",
+    "category": "student portal",
+    "question": "How do I print my course form?",
+    "answer": "Log in to the student portal, open course registration or registered courses, and use the print or download option for your course form. Confirm your courses before printing.",
+    "keywords": ["print", "course", "form", "registered", "portal", "download"],
+    "phrases": ["print my course form", "course form", "download course form", "registered course form"]
+  },
+  {
+    "id": "library-location-hours",
+    "category": "campus services",
+    "question": "Where is the library located and what are the opening hours?",
+    "answer": "For the library location and current opening hours, check campus notices, ask student affairs, or contact the library directly. Opening hours may change during exams, holidays, or breaks.",
+    "keywords": ["library", "location", "located", "hours", "opening", "open"],
+    "phrases": ["where is the library located", "library opening hours", "library location", "when does the library open"]
+  },
+  {
+    "id": "borrow-books",
+    "category": "campus services",
+    "question": "How do I borrow books?",
+    "answer": "To borrow books, register with the university library and follow the library's borrowing rules. Ask library staff about loan duration, renewals, fines, and required student identification.",
+    "keywords": ["borrow", "book", "books", "library", "renew", "loan"],
+    "phrases": ["borrow books", "how do i borrow books", "library books", "borrow a book"]
+  },
+  {
+    "id": "campus-wifi",
+    "category": "campus services",
+    "question": "Is there campus Wi-Fi and how do I connect?",
+    "answer": "For campus Wi-Fi access, contact ICT support or follow the university's network instructions. You may need your student credentials, device details, or an approved access code.",
+    "keywords": ["wifi", "wi-fi", "internet", "network", "connect", "campus"],
+    "phrases": ["campus wi-fi", "campus wifi", "connect to wifi", "connect to the campus wi-fi", "internet access"]
+  },
+  {
+    "id": "elearning-resources",
+    "category": "campus services",
+    "question": "How do I access e-learning resources or submit assignments online?",
+    "answer": "Use the official e-learning platform or learning management system provided by the university or your lecturer. If you cannot log in, upload assignments, or access materials, contact your lecturer or ICT support.",
+    "keywords": ["elearning", "e-learning", "assignment", "assignments", "online", "submit", "resources", "lecture"],
+    "phrases": ["e-learning resources", "access e-learning", "submit assignments online", "assignment online", "lecture notes"]
+  },
+  {
+    "id": "health-center",
+    "category": "campus services",
+    "question": "Where is the health center located?",
+    "answer": "For the health center location and medical support hours, contact student affairs or the university clinic. If it is an emergency, seek immediate medical assistance.",
+    "keywords": ["health", "center", "centre", "clinic", "medical", "sick", "hospital"],
+    "phrases": ["health center", "health centre", "where is the health center located", "university clinic", "campus clinic"]
+  },
+  {
+    "id": "hostel-application",
+    "category": "hostel and accommodation",
+    "question": "How do I apply for hostel accommodation?",
+    "answer": "Hostel applications should follow the official student affairs or accommodation process. Ask about availability, eligibility, payment, allocation steps, and required documents before paying.",
+    "keywords": ["hostel", "accommodation", "apply", "allocation", "student", "affairs"],
+    "phrases": ["apply for hostel accommodation", "hostel application", "hostel allocation", "accommodation application"]
+  },
+  {
+    "id": "hostel-availability",
+    "category": "hostel and accommodation",
+    "question": "Are hostel spaces still available?",
+    "answer": "Hostel availability changes quickly. Contact student affairs or the accommodation office to confirm available spaces, allocation status, and approved payment instructions.",
+    "keywords": ["hostel", "available", "availability", "spaces", "rooms", "allocation"],
+    "phrases": ["hostel spaces still available", "hostel availability", "available hostel rooms", "hostel spaces"]
+  },
+  {
+    "id": "hostel-rules-fees-room-change",
+    "category": "hostel and accommodation",
+    "question": "What are the hostel rules, fees, and room change process?",
+    "answer": "Hostel rules, accommodation fees, and room change requests are handled by student affairs or the accommodation office. Confirm the official rules, payment amount, visitor policy, maintenance process, and room change approval steps there.",
+    "keywords": ["hostel", "rules", "fees", "room", "change", "accommodation", "payment"],
+    "phrases": ["hostel rules", "hostel accommodation fee", "change my hostel room", "hostel room", "how much is hostel"]
+  },
+  {
+    "id": "head-of-department",
+    "category": "departmental questions",
+    "question": "Who is the Head of Department?",
+    "answer": "The Head of Department depends on your department and current appointment. Check your departmental office, notice board, handbook, or official university contact list for the current HOD.",
+    "keywords": ["hod", "head", "department", "departmental", "contact"],
+    "phrases": ["head of department", "who is the hod", "who is the head of department", "department head"]
+  },
+  {
+    "id": "department-courses-prerequisites",
+    "category": "departmental questions",
+    "question": "What courses are offered in my department and what are the prerequisites?",
+    "answer": "Departmental courses and prerequisites are listed in the departmental handbook, course outline, timetable, or student portal. Ask your academic adviser before registering if you are unsure about prerequisites.",
+    "keywords": ["department", "course", "prerequisite", "prerequisites", "offered", "adviser", "advisor"],
+    "phrases": ["courses offered in my department", "prerequisites for this course", "departmental courses", "course prerequisites"]
+  },
+  {
+    "id": "academic-advisor",
+    "category": "departmental questions",
+    "question": "How do I contact my academic advisor?",
+    "answer": "Contact your academic adviser through your departmental office, official email, class representative, or department notice. Have your matric number, level, and question ready.",
+    "keywords": ["academic", "advisor", "adviser", "contact", "department", "level"],
+    "phrases": ["contact my academic advisor", "contact my academic adviser", "academic adviser", "level adviser"]
+  },
+  {
+    "id": "departmental-timetable",
+    "category": "departmental questions",
+    "question": "What is the departmental or class timetable?",
+    "answer": "Departmental and class timetables are usually shared by the department, class representative, or student portal. Confirm the latest version because venues and times may change.",
+    "keywords": ["departmental", "class", "timetable", "schedule", "lecture", "venue"],
+    "phrases": ["departmental timetable", "class timetable", "lecture timetable", "where can i find the class timetable"]
+  },
+  {
+    "id": "student-id-card",
+    "category": "general student support",
+    "question": "How do I get my student ID card?",
+    "answer": "Student ID card requests are usually handled by student affairs, registry, or ICT. Ask for the approved process and bring your matric number, payment evidence if required, and identification details.",
+    "keywords": ["student", "id", "card", "identity", "matric"],
+    "phrases": ["student id card", "get my student id", "identity card", "student identity card"]
+  },
+  {
+    "id": "clubs-organizations",
+    "category": "general student support",
+    "question": "What clubs and organizations are available?",
+    "answer": "Student clubs and organizations are usually coordinated by student affairs or approved student bodies. Contact student affairs or check campus notices for active clubs, membership rules, and meeting times.",
+    "keywords": ["club", "clubs", "organization", "organisation", "society", "student"],
+    "phrases": ["clubs and organizations", "student clubs", "organizations available", "join a club"]
+  },
+  {
+    "id": "complaints-administration",
+    "category": "general student support",
+    "question": "How do I report a complaint or contact university administration?",
+    "answer": "For complaints or administration support, start with the relevant office: department, student affairs, registry, bursary, ICT, or admissions. Use official channels and include your name, matric number, issue, and supporting evidence.",
+    "keywords": ["complaint", "report", "administration", "contact", "office", "support"],
+    "phrases": ["report a complaint", "contact university administration", "contact the administration", "make a complaint"]
+  },
+  {
+    "id": "personal-reminders",
+    "category": "smart assistant",
+    "question": "Can you remind me of my classes, assignments, exams, or timetable?",
+    "answer": "I can answer general questions, but I cannot see your personal class reminders, assignments, next exam, or semester timetable unless those records are added to the system. Check your department, e-learning platform, student portal, or timetable notice for personal schedule details.",
+    "keywords": ["remind", "classes", "assignment", "assignments", "exam", "timetable", "schedule", "today", "week"],
+    "phrases": ["remind me of my classes today", "assignments due this week", "when is my next exam", "show me my semester timetable", "my timetable"]
+  },
+  {
+    "id": "smart-academic-advice",
+    "category": "smart assistant",
+    "question": "Can you recommend electives or tell me what courses I need to graduate?",
+    "answer": "Elective recommendations and graduation course checks require your programme curriculum, completed courses, failed courses, unit totals, and department rules. Contact your academic adviser or department for official guidance.",
+    "keywords": ["recommend", "elective", "electives", "graduate", "graduation", "completed", "units"],
+    "phrases": ["recommend elective courses", "courses do i need to graduate", "how many units have i completed", "elective courses"]
+  },
+  {
+    "id": "lecture-exam-help",
+    "category": "smart assistant",
+    "question": "Can you summarize lecture notes or help me prepare for an exam?",
+    "answer": "I can help explain study topics if you type or paste the notes or questions. For a specific exam like SEN 312, share the topic, outline, or past questions you want to study, and confirm official exam guidance with your lecturer.",
+    "keywords": ["summarize", "lecture", "notes", "prepare", "exam", "sen", "312", "study"],
+    "phrases": ["summarize today's lecture notes", "help me prepare", "sen 312 exam", "prepare for my exam", "lecture notes"]
   },
   {
     "id": "ict-support",
-    "category": "portal",
-    "question": "Who helps with ICT or portal problems?",
-    "answer": "For portal errors, account access, email issues, internet access, or technical problems, contact ICT support. Share the exact error message, your matric number, and what you were trying to do.",
-    "keywords": ["ict", "portal", "technical", "internet", "email", "error", "account"],
-    "phrases": ["ict support", "portal error", "technical support", "internet access", "student email"]
-  },
-  {
-    "id": "clinic",
-    "category": "student services",
-    "question": "Where can I get medical help on campus?",
-    "answer": "For health or medical concerns, contact the university clinic or student affairs for the correct campus health support channel. If it is an emergency, seek immediate medical assistance.",
-    "keywords": ["clinic", "medical", "health", "sick", "emergency", "hospital"],
-    "phrases": ["medical help", "university clinic", "health support", "i am sick", "campus clinic"]
+    "category": "technical support",
+    "question": "My portal is not working. What should I do?",
+    "answer": "For portal errors, account access, student email, Wi-Fi, e-learning, or course registration problems, contact ICT support. Share the exact error message, your matric number, device/browser, and what you were trying to do.",
+    "keywords": ["ict", "portal", "technical", "internet", "email", "error", "account", "wifi", "register"],
+    "phrases": ["portal is not working", "ict support", "portal error", "technical support", "university email", "can't register my courses"]
   },
   {
     "id": "contact-office",
     "category": "support",
     "question": "Who should I contact for help?",
-    "answer": "For urgent or account-specific help, contact the relevant Wellspring University office: admissions, registry, bursary, ICT support, student affairs, or your department.",
-    "keywords": ["contact", "help", "office", "support", "department"],
-    "phrases": ["contact support", "who should i contact", "student help"]
+    "answer": "For urgent or account-specific help, contact the relevant Wellspring University office: admissions, registry, bursary, ICT support, student affairs, library, clinic, or your department.",
+    "keywords": ["contact", "help", "office", "support", "department", "student"],
+    "phrases": ["contact support", "who should i contact", "student help", "which office should i contact"]
   }
 ]

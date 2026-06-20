@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   addMessage(
-    `Hello ${session.student?.username || "there"}. Ask me about admissions, login help, fees, course registration, transcripts, accommodation, or student support.`,
+    `Hello ${session.student?.username || "there"}. Ask me about admissions, course registration, academics, exams, fees, portal help, campus services, hostel, departments, timetables, or student support.`,
     "bot"
   );
 
